@@ -1,6 +1,8 @@
 package com.jarvis.report.service;
 
 import com.jarvis.report.domain.Company;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -29,4 +31,8 @@ public interface CompanyService {
 
     // 执行原生SQL语句查询
     List<Company> findByNativeSQL(String company);
+
+    // 简单分页查询
+    Page<Company> findAllSimplePage(Pageable pageable);
+
 }

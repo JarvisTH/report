@@ -4,6 +4,8 @@ import com.jarvis.report.domain.Company;
 import com.jarvis.report.repository.CompanyRepo;
 import com.jarvis.report.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -40,6 +42,11 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<Company> findAll() {
         return companyRepo.findAll();
+    }
+
+    @Override
+    public Page<Company> findAllSimplePage(Pageable pageable) {
+        return companyRepo.findAll(pageable);
     }
 
     @Override
