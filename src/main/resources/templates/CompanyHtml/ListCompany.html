@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title text="网站后台首页"></title>
+    <script type="text/javascript" data-main="/jscust/Company/ListCompany.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
+</head>
+</head>
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div th:include="common::commonNav" th:remove="tag"></div>
+        <div th:include="common::commonTop" th:remove="tag"></div>
+    </div>
+</div>
+
+<div class="right_col" role="main">
+    <div class="clearfix"></div>
+    <h2><strong>home>公司列表</strong></h2>
+    <div class="row">
+        <div class="col-md-10">
+            <table id="tb_company" style="cursor: pointer"></table>
+        </div>
+        <div class="col-md-2">
+            <span id="detail_company"></span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

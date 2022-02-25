@@ -79,6 +79,7 @@ public class CompanyCtl {
             size = (reqMap.get("size").toString() != null) ?
                     Integer.parseInt(reqMap.get("size").toString()) : size;
         }
+        // 排序
         List<Sort.Order> orders = new ArrayList<>();
         orders.add(new Sort.Order(Sort.Direction.DESC, "comname"));
         orders.add(new Sort.Order(Sort.Direction.ASC, "comaddress"));
@@ -86,7 +87,7 @@ public class CompanyCtl {
         Page<Company> pageInfo = companyService.findAllSimplePage(
                 PageRequest.of(page, size, Sort.by(orders)));
         List<Company> companies = pageInfo.getContent();
-//         fastjson配置
+        // fastjson配置
         JSONObject result = new JSONObject();
         // rows total属性是为前端列表插件服务
         result.put("rows", companies);
@@ -94,14 +95,20 @@ public class CompanyCtl {
         return result.toJSONString();
     }
 
+    // 服务公司列表
+    @RequestMapping("listCompany")
+    public String listCompany() {
+        return "/company/ListCompany.html";
+    }
+
 
     //    访问页面
-    @RequestMapping("/test.html")
+    @RequestMapping("/test")
     public String showPublicHtml() {
         return "redirect:/test.html";
     }
 
-    @RequestMapping("/templateTest.html")
+    @RequestMapping("/templateTest")
     public String showTemplateHtml() {
 //        return "/CompanyHtml/templateTest.html";
 //        return "testPage.html";
